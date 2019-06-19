@@ -1,4 +1,8 @@
 import React from 'react';
+
+import StatusUpdatePage from './scripts/pages/statusupdate/StatusUpdatePage';
+
+
 import './App.css';
 
 function App() {
@@ -8,6 +12,7 @@ function App() {
         <h1>
         {"How are you today?"}
         </h1>
+        <StatusUpdatePage />
       </header>
     </div>
   );
