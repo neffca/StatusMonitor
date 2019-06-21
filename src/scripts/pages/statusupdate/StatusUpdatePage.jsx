@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { updateStatus } from "../../actions/statusAction";
+import StatusUpdateItem from './StatusUpdateItem';
+
+import { updateStatus } from '../../actions/statusAction';
+import { statusTypes } from '../../constants/status-types';
 
 class StatusUpdatePage extends React.Component {
 
@@ -12,17 +14,28 @@ class StatusUpdatePage extends React.Component {
     this._handleTap = this._handleTap.bind(this);
   }
 
-  _handleTap(){
-    //this.props.updateStatus();
+  _handleTap(status){
+    console.log(this.props.statuses);
+    this.props.updateStatus(status);
+  }
+
+  _renderStatuses() {
+    return Object.values(statusTypes).map((status) => {
+      return (
+          <StatusUpdateItem
+            key={status+'-item'}
+            onTap={this._handleTap}
+            status={status}
+            />
+      );
+    });
   }
   render() {
     return (
-      <p
-        onClick={this._handleTap}
-        >
-        {'Selection'}
-      </p>
-    )
+      <div>
+        {this._renderStatuses()}
+      </div>
+    );
   }
 }
 
