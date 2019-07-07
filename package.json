@@ -17,7 +17,7 @@
     "deploy": "gh-pages -d build",
     "dev": "webpack-dev-server",
     "start": "webpack",
-    "build": "react-scripts build",
+    "build": "webpack",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
