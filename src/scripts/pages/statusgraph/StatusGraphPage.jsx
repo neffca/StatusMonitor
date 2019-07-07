@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom'
 
 class StatusGraphPage extends React.Component {
 
@@ -12,6 +12,10 @@ class StatusGraphPage extends React.Component {
     return (
       <div>
         {"graph"}
+          <br />
+          <Link to="/survey" >
+            Take the survey
+          </Link>
       </div>
     );
   }

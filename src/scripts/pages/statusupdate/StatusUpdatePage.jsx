@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom'
 import StatusUpdateItem from './StatusUpdateItem';
 
 import { updateStatus } from '../../actions/statusAction';
@@ -22,18 +22,25 @@ class StatusUpdatePage extends React.Component {
   _renderStatuses() {
     return Object.values(statusTypes).map((status) => {
       return (
+        <Link to="/home" >
           <StatusUpdateItem
             key={status+'-item'}
             onTap={this._handleTap}
             status={status}
             />
+          </Link>
       );
     });
   }
   render() {
     return (
       <div>
-        {this._renderStatuses()}
+        <header className="App-header">
+          <h1>
+          {"How are you today?"}
+          </h1>
+          {this._renderStatuses()}
+        </header>
       </div>
     );
   }
