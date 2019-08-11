@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { statusText } from '../../constants/status-types';
+import { statusText } from '../../../constants/status-types';
 
 class StatusUpdateItem extends React.Component {
 

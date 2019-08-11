@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import StatusUpdateItem from './StatusUpdateItem';
 
-import { updateStatus } from '../../actions/statusAction';
-import { statusTypes } from '../../constants/status-types';
+import { updateStatus } from '../../../actions/statusAction';
+import { statusTypes } from '../../../constants/status-types';
+
+import Page from '../../common/Page';
 
 class StatusUpdatePage extends React.Component {
 
@@ -34,14 +36,14 @@ class StatusUpdatePage extends React.Component {
   }
   render() {
     return (
-      <div>
+      <Page>
         <header className="App-header">
           <h1>
           {"How are you today?"}
           </h1>
           {this._renderStatuses()}
         </header>
-      </div>
+      </Page>
     );
   }
 }

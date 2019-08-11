@@ -1,20 +1,5 @@
 .root {
-  -st-states: time( enum(morning, afternoon, evening) )
   position: absolute;
   height: 100%;
   width: 100%;
-  -webkit-transition: background-image 0.2s ease-in-out;
-  transition: background-image 0.2s ease-in-out;
-}
-
-.root:time(morning) {
-  background-image: linear-gradient(to bottom, #ffe000, #ff8100);
-}
-
-.root:time(afternoon) {
-  background-image: linear-gradient(to bottom, white, green);
-}
-
-.root:time(evening) {
-  background-image: linear-gradient(to bottom, lightblue, darkblue);
 }

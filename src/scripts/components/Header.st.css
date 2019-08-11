@@ -1,0 +1,19 @@
+.root {
+  -st-states: time( enum(morning, afternoon, evening) )
+  height: 50px;
+  width: 100%;
+  -webkit-transition: background-image 0.2s ease-in-out;
+  transition: background-image 0.2s ease-in-out;
+}
+
+.root:time(morning) {
+  background-color: #ff9900;
+}
+
+.root:time(afternoon) {
+  background-color: #4caf50;
+}
+
+.root:time(evening) {
+  background-color: #787cb3;
+}
