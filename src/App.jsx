@@ -16,8 +16,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/survey' component={StatusUpdatePage}/>
             <Route exact path='/home' component={StatusGraphPage}/>
+            <Redirect exact from="/" to="/home" />
           </Switch>
-          <Redirect from="/" to="/home" />
       </Router>
     </div>
   );

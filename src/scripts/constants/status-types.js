@@ -7,8 +7,8 @@ export const statusTypes = {
 }
 
 export let statusText = {};
-statusText[statusTypes.strongNegative] = "very sad";
-statusText[statusTypes.negative] = "sad";
-statusText[statusTypes.neutral] = "neutral";
-statusText[statusTypes.positive] = "happy";
-statusText[statusTypes.strongPositive] = "very happy";
+statusText[statusTypes.strongNegative] = "Aweful";
+statusText[statusTypes.negative] = "Not Great";
+statusText[statusTypes.neutral] = "Not Bad";
+statusText[statusTypes.positive] = "Pretty Good";
+statusText[statusTypes.strongPositive] = "Fantastic";

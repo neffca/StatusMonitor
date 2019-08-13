@@ -8,6 +8,8 @@ import { statusTypes } from '../../../constants/status-types';
 
 import Page from '../../common/Page';
 
+import {style, classes} from './StatusUpdatePage.st.css';
+
 class StatusUpdatePage extends React.Component {
 
   constructor() {
@@ -24,9 +26,11 @@ class StatusUpdatePage extends React.Component {
   _renderStatuses() {
     return Object.values(statusTypes).map((status) => {
       return (
-        <Link to="/home" >
+        <Link to="/home"
+          className={classes.item}
+          key={status+'-item'}
+          >
           <StatusUpdateItem
-            key={status+'-item'}
             onTap={this._handleTap}
             status={status}
             />
@@ -37,12 +41,16 @@ class StatusUpdatePage extends React.Component {
   render() {
     return (
       <Page>
-        <header className="App-header">
-          <h1>
+        <div
+          className={style(classes.root, {})}
+          >
+        <h1
+          className={classes.header}
+          >
           {"How are you today?"}
-          </h1>
-          {this._renderStatuses()}
-        </header>
+        </h1>
+        {this._renderStatuses()}
+        </div>
       </Page>
     );
   }

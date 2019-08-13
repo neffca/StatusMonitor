@@ -5,7 +5,7 @@ import Header from '../Header.jsx'
 import {style, classes} from './Page.st.css';
 
 const NOON = 12;
-const NIGHT = 22;
+const NIGHT = 21;
 
 class Page extends React.Component {
   static displayName = 'Page';

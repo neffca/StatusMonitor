@@ -1,0 +1,18 @@
+.root {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.item {
+  display: flex;
+  text-decoration: none;
+  text-align: center;
+  justify-content: center;
+}
+
+.header {
+  color: white;
+  text-align: center;
+}

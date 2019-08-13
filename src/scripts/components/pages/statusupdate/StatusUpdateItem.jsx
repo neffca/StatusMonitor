@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import { statusText } from '../../../constants/status-types';
 
+import {style, classes} from './StatusUpdateItem.st.css';
+
 class StatusUpdateItem extends React.Component {
 
   static displayName = 'StatusUpdateItem';
@@ -28,6 +30,7 @@ class StatusUpdateItem extends React.Component {
   render() {
     return (
       <p
+        className={style(classes.root,{})}
         onClick={this._handleTap}
         >
         {statusText[this.props.status]}
@@ -35,6 +38,5 @@ class StatusUpdateItem extends React.Component {
     );
   }
 }
-
 
 export default StatusUpdateItem;
