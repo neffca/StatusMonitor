@@ -19,8 +19,12 @@ class StatusUpdatePage extends React.Component {
   }
 
   _handleTap(status){
-    console.log(this.props.statuses);
-    this.props.updateStatus(status);
+    const date = new Date();
+    
+    const newDate = [date.getUTCMonth(), date.getUTCDate(), date.getFullYear()]
+    this.props.updateStatus({
+      date: newDate.join('/'), 
+      status: status});
   }
 
   _renderStatuses() {
@@ -56,15 +60,15 @@ class StatusUpdatePage extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = state => {
   return {
-  ...state
+    statuses: state.statusReducer.statuses
   }
-};
+}
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
-    updateStatus: status => dispatch(updateStatus(status))
+    updateStatus: (status) => dispatch(updateStatus(status))
   }
 }
 

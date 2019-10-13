@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { VictoryLine, VictoryChart, VictoryAxis } from 'victory';
 import Page from '../../common/Page';
@@ -40,14 +41,7 @@ class StatusGraphPage extends React.Component {
                 onLoad: { duration: 1000 }
               }}
               categories={{ y: ["aweful", "bad", "good", "great"] }}
-              data={[
-                {x: '1-01', y:"good"},
-                {x: '1-02', y:"bad"},
-                {x: '1-03', y:"great"},
-                {x: '1-04', y:"good"},
-                {x: '1-05', y:"bad"},
-                {x: '1-06', y:"good"}
-              ]}
+              data={this.props.graphData}
               style={{
                 data: {
                   stroke: "teal", strokeWidth: 1
@@ -72,4 +66,21 @@ class StatusGraphPage extends React.Component {
   }
 }
 
-export default StatusGraphPage;
+const toGraphData = (statuses) => {
+  const graphData = [];
+  statuses.forEach((status) => {
+    graphData.push({
+      x: status.date,
+      y: status.status
+    });
+  });
+  console.log(graphData);
+  return graphData;
+}
+const mapStateToProps = state => {
+  return {
+    graphData: toGraphData(state.statusReducer.statuses)
+  }
+}
+
+export default connect(mapStateToProps)(StatusGraphPage);
