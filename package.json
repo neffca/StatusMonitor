@@ -1,67 +1,35 @@
 {
-  "name": "status-tracker",
-  "homepage": "https://neffca.github.io/StatusMonitor/",
-  "version": "0.1.0",
-  "private": true,
+  "name": "statusmonitor",
+  "version": "1.0.0",
+  "description": "README",
+  "main": "index.js",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "gh-pages": "^2.0.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.1.0",
-    "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
-    "redux": "^4.0.1",
-    "redux-saga": "^1.1.1",
-    "victory": "^32.3.3"
+    "pg": "^8.3.3",
+    "postgrator-cli": "^4.0.0"
   },
+  "devDependencies": {},
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "dev": "webpack-dev-server",
-    "start": "webpack",
-    "build": "webpack",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "mocha --require test/setup.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "postgrator --config server/postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
+    "migrate:production": "heroku run npm run migrate",
+    "start": "node src/server.js",
+    "predeploy": "npm audit && npm run migrate:production",
+    "deploy": "git push heroku master",
+    "postdeploy": "npm run migrate:production"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neffca/StatusMonitor.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neffca/StatusMonitor/issues"
   },
-  "devDependencies": {
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
-    "@babel/preset-react": "^7.0.0",
-    "@stylable/webpack-plugin": "^2.1.1",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "stylable": "^5.4.11",
-    "style-loader": "^0.23.1",
-    "url-loader": "^2.0.1",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5",
-    "webpack-dev-server": "^3.7.2"
-  },
-  "babel": {
-    "presets": [
-      "@babel/env",
-      "@babel/react"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-class-properties"
-    ]
-  }
+  "homepage": "https://github.com/neffca/StatusMonitor#readme"
 }

@@ -2,8 +2,10 @@ package-lock.json
 
 # dependencies
 /node_modules
+/client/node_modules
 /.pnp
 .pnp.js
+.env
 
 # testing
 /coverage

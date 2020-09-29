@@ -2,12 +2,15 @@ const path = require("path");
 const { StylableWebpackPlugin } = require('@stylable/webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: ['babel-polyfill', "./src/index.js"],
   mode: "development",
   output: {
     filename: "./main.js"
   },
   module: {
+    loaders: [
+      { test: /\.jsx?$/, loader: 'babel', }
+    ],
     rules: [
       {
         test: /\.(js|jsx)$/,
