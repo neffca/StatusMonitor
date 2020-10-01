@@ -1,0 +1,38 @@
+{
+  "name": "statusmonitor",
+  "version": "1.0.0",
+  "description": "README",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.21.6",
+    "pg": "^8.3.3",
+    "postgrator-cli": "3.2.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "test": "mocha --require test/setup.js",
+    "dev": "nodemon src/server.js",
+    "migrate": "postgrator --config postgrator-config.js",
+    "migrate:test": "env NODE_ENV=test npm run migrate",
+    "migrate:production": "heroku run npm run migrate",
+    "start": "node src/server.js",
+    "predeploy": "npm audit && npm run migrate:production",
+    "deploy": "git push heroku master",
+    "postdeploy": "npm run migrate:production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neffca/StatusMonitor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neffca/StatusMonitor/issues"
+  },
+  "homepage": "https://github.com/neffca/StatusMonitor#readme"
+}
